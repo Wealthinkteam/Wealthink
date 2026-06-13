@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wealthink — Always With You</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:  #1E3D2A;
+    --green2: #2D5A3D;
+    --gold:   #C9A84C;
+    --cream:  #F2EDD7;
+    --ink:    #1A1A1A;
+    --muted:  #5A5245;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--green);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; height: 72px;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 700; letter-spacing: 0.02em;
+    color: var(--gold); text-decoration: none;
+  }
+  .nav-cta {
+    background: var(--gold); color: var(--green);
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+    padding: 10px 24px; border-radius: 2px; text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    transition: opacity .2s; white-space: nowrap;
+  }
+  .nav-cta:hover { opacity: .85; }
+
+  /* HERO */
+  .hero {
+    background: var(--green);
+    padding: 88px 5vw 80px;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 28px;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif; font-size: 12px;
+    font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); opacity: .8;
+  }
+  .hero-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 80px);
+    font-weight: 600; line-height: 1.05;
+    color: var(--cream); max-width: 720px;
+  }
+  .hero-headline em { font-style: italic; color: var(--gold); }
+  .hero-divider { width: 56px; height: 2px; background: var(--gold); opacity: .5; }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(19px, 2.5vw, 25px);
+    font-weight: 400; font-style: italic;
+    color: #C8D9CC; max-width: 560px; line-height: 1.65;
+  }
+
+  /* SHARED SECTION */
+  section { padding: 80px 5vw; }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 600; color: var(--gold);
+    margin-bottom: 12px; display: block;
+  }
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 700; color: var(--green);
+    line-height: 1.15; margin-bottom: 28px;
+  }
+  .section-body {
+    font-size: 15px; color: var(--muted);
+    max-width: 620px; line-height: 1.9;
+  }
+  .section-body p + p { margin-top: 18px; }
+
+  /* ABOUT */
+  .about {
+    background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start;
+  }
+  @media (max-width: 760px) { .about { grid-template-columns: 1fr; gap: 40px; } }
+  .about-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 400; font-style: italic;
+    color: var(--green); line-height: 1.55;
+    border-left: 3px solid var(--gold); padding-left: 28px;
+  }
+
+  /* SERVICES */
+  .services { background: var(--green); }
+  .services .section-heading { color: var(--cream); }
+  .services .section-label { color: var(--gold); }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 2px; margin-top: 44px;
+  }
+  .service-card {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(201,168,76,0.22);
+    padding: 36px 30px; transition: background .2s;
+  }
+  .service-card:hover { background: rgba(255,255,255,0.07); }
+  .service-bar { width: 36px; height: 2px; background: var(--gold); margin-bottom: 22px; }
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700; color: var(--cream);
+    margin-bottom: 12px; line-height: 1.3;
+  }
+  .service-desc { font-size: 14px; color: #8FAF98; line-height: 1.8; }
+
+  /* VALUES — sizes locked from Playfair version */
+  .values { background: #EBE4CC; }
+  .values .section-heading { color: var(--green); }
+
+  .values-row { display: flex; flex-wrap: wrap; gap: 48px; margin-top: 48px; }
+  .value-item { flex: 1; min-width: 180px; }
+  .value-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 5.5vw, 60px);
+    font-weight: 700; color: var(--gold); line-height: 1;
+  }
+  .value-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.2vw, 24px);
+    font-weight: 700; color: var(--green);
+    margin-top: 10px; margin-bottom: 8px;
+  }
+  .value-desc { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+  /* CTA */
+  .cta-section { background: var(--gold); text-align: center; padding: 72px 5vw; }
+  .cta-section .section-heading { color: var(--green); margin-bottom: 14px; }
+  .cta-section .section-label { color: var(--green); opacity: .7; }
+  .cta-section p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 20px;
+    color: var(--green); opacity: .8; margin-bottom: 36px;
+  }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--green); color: var(--cream);
+    font-size: 13px; font-weight: 500; letter-spacing: 0.07em;
+    text-transform: uppercase; padding: 14px 32px;
+    border-radius: 2px; text-decoration: none; transition: opacity .2s;
+  }
+  .btn-primary:hover { opacity: .85; }
+  .btn-outline {
+    background: transparent; color: var(--green);
+    border: 1.5px solid var(--green);
+    font-size: 13px; font-weight: 500; letter-spacing: 0.07em;
+    text-transform: uppercase; padding: 14px 32px;
+    border-radius: 2px; text-decoration: none; transition: opacity .2s;
+  }
+  .btn-outline:hover { opacity: .6; }
+
+  /* FOOTER */
+  footer {
+    background: #111C15;
+    padding: 56px 5vw 36px;
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .footer-top {
+    display: flex; flex-wrap: wrap; justify-content: space-between;
+    align-items: flex-start; gap: 36px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; font-weight: 700; color: var(--gold); letter-spacing: 0.02em;
+  }
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px; font-style: italic; color: #6B8A72; margin-top: 6px;
+  }
+  .footer-links { display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { font-size: 13px; color: #8FAF98; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-contact { font-size: 13px; color: #8FAF98; line-height: 2; }
+  .footer-divider { height: 0.5px; background: rgba(255,255,255,0.07); }
+  .footer-bottom {
+    display: flex; flex-wrap: wrap; justify-content: space-between;
+    gap: 12px; align-items: flex-end;
+  }
+  .footer-disclaimer { font-size: 11px; color: #4A6652; line-height: 1.8; max-width: 620px; }
+  .footer-copy { font-size: 11px; color: #4A6652; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Wealthink</a>
+  <a class="nav-cta" href="https://share.google/ktznVtrMIxsiMFObb" target="_blank" rel="noopener">Leave a Review</a>
+</nav>
+
+<section class="hero">
+  <span class="hero-eyebrow">Financial Advisory · Pune, India</span>
+  <h1 class="hero-headline">Always with you<br>and your family<br><em>in this journey.</em></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">Simplifying financial decisions. Building wealth steadily through informed choices, sustained over time.</p>
+</section>
+
+<section class="about">
+  <div>
+    <span class="section-label">About Wealthink</span>
+    <h2 class="section-heading">Clarity over complexity.<br>Direction over trends.</h2>
+    <div class="section-body">
+      <p>We work with our clients to simplify financial decisions and select products aligned with their goals. Our approach is rooted in transparency, consistency, and research-backed thinking.</p>
+      <p>Whether you are just starting your investment journey or reviewing an existing portfolio, we are here to help. The focus is not on chasing trends. It is on maintaining direction, discipline, and a long-term perspective.</p>
+      <p>Wealth is built steadily. Not through shortcuts, but through informed decisions sustained over time. You work hard for your money, and we believe it should work just as hard for you.</p>
+    </div>
+  </div>
+  <blockquote class="about-quote">
+    "97% of people work tirelessly to earn money. But their money barely works for them."
+  </blockquote>
+</section>
+
+<section class="services">
+  <span class="section-label">What We Do</span>
+  <h2 class="section-heading">Guidance at every stage<br>of your financial life.</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-bar"></div>
+      <p class="service-title">Mutual Fund Advisory</p>
+      <p class="service-desc">Every financial goal needs a clear plan behind it. We sit with you, understand your priorities and risk appetite, and help you build a roadmap that gives your money direction and purpose.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-bar"></div>
+      <p class="service-title">Insurance Planning</p>
+      <p class="service-desc">Right coverage at the right cost. We help you protect what matters before life asks you to.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-bar"></div>
+      <p class="service-title">Goal-Based Financial Planning</p>
+      <p class="service-desc">From your first SIP to retirement. A clear plan that keeps your money working toward what matters most.</p>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <span class="section-label">Our Approach</span>
+  <h2 class="section-heading">Three things we never compromise on.</h2>
+  <div class="values-row">
+    <div class="value-item">
+      <div class="value-num">01</div>
+      <div class="value-label">Transparency</div>
+      <div class="value-desc">From the very first conversation to every review along the way, our process is fully open. You will always know what we recommend, why we recommend it, and what comes next.</div>
+    </div>
+    <div class="value-item">
+      <div class="value-num">02</div>
+      <div class="value-label">Consistency</div>
+      <div class="value-desc">We show up at every stage. Not just when markets are good.</div>
+    </div>
+    <div class="value-item">
+      <div class="value-num">03</div>
+      <div class="value-label">Research</div>
+      <div class="value-desc">Every decision is backed by data. Not instinct or incentive.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <span class="section-label">Get In Touch</span>
+  <h2 class="section-heading">Let us talk about<br>your financial goals.</h2>
+  <p>A 20-minute conversation can change the direction of your financial journey.</p>
+  <div class="cta-buttons">
+    <a class="btn-primary" href="tel:7757873564">Call Us: 7757873564</a>
+    <a class="btn-outline" href="https://share.google/ktznVtrMIxsiMFObb" target="_blank" rel="noopener">Review Us on Google</a>
+    <a class="btn-outline" href="https://in.linkedin.com/in/kpkrishnanwealthink" target="_blank" rel="noopener">Connect on LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Wealthink</div>
+      <div class="footer-tagline">Always with you and your family in this journey.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://in.linkedin.com/in/kpkrishnanwealthink" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://share.google/ktznVtrMIxsiMFObb" target="_blank" rel="noopener">Google Reviews</a>
+      <a href="tel:7757873564">+91 77578 73564</a>
+      <a href="mailto:wealthinkeight@gmail.com">wealthinkeight@gmail.com</a>
+    </div>
+    <div class="footer-contact">Pune, Maharashtra<br>India</div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <p class="footer-disclaimer">Krishnan is an AMFI-registered mutual fund distributor (ARN-306261) operating under the guidelines of the Association of Mutual Funds in India (AMFI) and regulated by the Securities and Exchange Board of India (SEBI). Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing.</p>
+    <p class="footer-copy">2026 Wealthink</p>
+  </div>
+</footer>
+
+</body>
+</html>
