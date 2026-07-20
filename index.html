@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Wealthink — Always With You</title>
+<title>Wealthink, Always With You</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,9 +57,9 @@
     display: flex; flex-direction: column; align-items: flex-start; gap: 28px;
   }
   .hero-eyebrow {
-    font-family: 'DM Sans', sans-serif; font-size: 12px;
-    font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--gold); opacity: .8;
+    font-family: 'DM Sans', sans-serif; font-size: 13px;
+    font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    color: #C9A84C; opacity: 1;
   }
   .hero-headline {
     font-family: 'Cormorant Garamond', serif;
@@ -69,11 +69,29 @@
   }
   .hero-headline em { font-style: italic; color: var(--gold); }
   .hero-divider { width: 56px; height: 2px; background: var(--gold); opacity: .5; }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+  .btn-hero-primary {
+    background: var(--gold); color: var(--green);
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+    padding: 12px 28px; border-radius: 2px; text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase; transition: opacity .2s;
+    white-space: nowrap;
+  }
+  .btn-hero-primary:hover { opacity: .85; }
+  .btn-hero-outline {
+    background: transparent; color: var(--gold);
+    border: 1.5px solid var(--gold);
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
+    padding: 12px 28px; border-radius: 2px; text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase; transition: opacity .2s;
+    white-space: nowrap; cursor: pointer;
+  }
+  .btn-hero-outline:hover { opacity: .75; }
   .hero-sub {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(19px, 2.5vw, 25px);
-    font-weight: 400; font-style: italic;
-    color: #C8D9CC; max-width: 560px; line-height: 1.65;
+    font-weight: 500; font-style: normal;
+    color: #D8E8DC; max-width: 560px; line-height: 1.65;
   }
 
   /* SHARED */
@@ -81,9 +99,10 @@
 
   .section-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(22px, 3vw, 30px);
-    font-weight: 600; color: var(--gold);
-    margin-bottom: 12px; display: block;
+    font-size: clamp(24px, 3.5vw, 34px);
+    font-weight: 700; color: var(--gold);
+    margin-bottom: 14px; display: block;
+    letter-spacing: 0.01em;
   }
   .section-heading {
     font-family: 'Cormorant Garamond', serif;
@@ -131,13 +150,14 @@
     font-size: 24px; font-weight: 700; color: var(--cream);
     margin-bottom: 12px; line-height: 1.3;
   }
-  .service-desc { font-size: 14px; color: #8FAF98; line-height: 1.8; }
+  .service-desc { font-size: 16px; color: #C8DDD0; line-height: 1.8; }
 
   /* VALUES */
   .values { background: #EBE4CC; }
   .values .section-heading { color: var(--green); }
   .values-row { display: flex; flex-wrap: wrap; gap: 48px; margin-top: 48px; }
   .value-item { flex: 1; min-width: 180px; }
+  .value-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-top: 12px; }
   .value-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(52px, 6.5vw, 72px);
@@ -184,7 +204,7 @@
   .iap-credit { display: block; }
   .iap-line { width: 24px; height: 1px; background: var(--gold); margin-bottom: 12px; display: block; }
   .iap-name { font-size: 14px; color: var(--gold); font-weight: 500; margin: 0; font-family: 'DM Sans', sans-serif; }
-  .iap-role { font-size: 12px; color: #8FAF98; margin: 4px 0 0; font-family: 'DM Sans', sans-serif; }
+  .iap-role { font-size: 12px; color: #A8C9B0; margin: 4px 0 0; font-family: 'DM Sans', sans-serif; }
 
   /* FROM OUR CLIENTS */
   .clients { background: #EBE4CC; }
@@ -199,21 +219,25 @@
   .client-quote {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(17px, 2vw, 21px);
-    font-weight: 500;
+    font-weight: 500; font-style: normal;
     color: var(--green); line-height: 1.85; margin-bottom: 24px;
   }
   .client-divider { width: 24px; height: 1px; background: var(--gold); margin-bottom: 12px; }
   .client-name { font-size: 14px; color: var(--gold); font-weight: 500; margin: 0; }
-  .client-role { font-size: 12px; color: var(--muted); margin: 4px 0 0; }
+  .client-role { font-size: 12px; color: #6B5E52; margin: 4px 0 0; }
 
   /* CTA */
   .cta-section { background: var(--gold); text-align: center; padding: 72px 5vw; }
-  .cta-section .section-heading { color: var(--green); margin-bottom: 14px; }
-  .cta-section .section-label { color: var(--green); opacity: .7; }
+  .cta-section .section-heading { color: #0F2015; margin-bottom: 14px; }
+  .cta-section .section-label { color: #0F2015; opacity: .8; }
+  .cta-body-text {
+    font-size: 22px; font-family: 'Cormorant Garamond', serif;
+    font-style: normal; font-weight: 500; color: #1A3020; margin-bottom: 36px;
+  }
   .cta-section p {
     font-family: 'Cormorant Garamond', serif;
-    font-style: italic; font-size: 20px;
-    color: var(--green); opacity: .8; margin-bottom: 36px;
+    font-style: normal; font-size: 18px;
+    color: #1A3020; opacity: 1; margin-bottom: 36px;
   }
   .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
   .btn-primary {
@@ -261,7 +285,7 @@
   .footer-disclaimer { font-size: 11px; color: #4A6652; line-height: 1.8; max-width: 620px; }
   .footer-copy { font-size: 11px; color: #4A6652; white-space: nowrap; }
 
-  /* CONSULTATION BUTTON — hero */
+  /* CONSULTATION BUTTON, hero */
   .btn-consult {
     background: var(--gold); color: var(--green);
     font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500;
@@ -271,7 +295,7 @@
   }
   .btn-consult:hover { opacity: .85; }
 
-  /* FLOATING BAR — mobile only */
+  /* FLOATING BAR, mobile only */
   .float-bar {
     display: none;
     position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
@@ -295,16 +319,130 @@
 
   /* MOBILE BREAKPOINTS */
   @media (max-width: 760px) {
-    .about { grid-template-columns: 1fr; gap: 40px; }
+    /* Scale everything down proportionally */
+    html { font-size: 13px; }
+
+    /* Layout fixes */
+    .about { grid-template-columns: 1fr; gap: 28px; }
     .featured-grid { grid-template-columns: 1fr; }
     .clients-grid { grid-template-columns: 1fr; }
     .value-item { min-width: 100%; }
+    .services-grid { grid-template-columns: 1fr; }
+    .footer-top { flex-direction: column; gap: 20px; }
+    .cta-buttons { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+
+    /* Nav */
     .nav-cta { display: none; }
     .float-bar { display: flex; }
-    .footer-top { flex-direction: column; gap: 24px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .cta-buttons { flex-direction: column; align-items: center; }
+
+    /* Sections */
+    section { padding: 40px 5vw; }
+    .hero { padding: 48px 5vw 44px; gap: 18px; }
+
+    /* Hero */
+    .hero-headline { font-size: clamp(32px, 9vw, 48px); }
+    .hero-sub { font-size: 14px; line-height: 1.65; }
+    .hero-buttons { flex-direction: row; gap: 10px; flex-wrap: wrap; }
+    .btn-hero-primary, .btn-hero-outline {
+      padding: 11px 18px; font-size: 11px;
+    }
+
+    /* Service cards */
+    .service-card { padding: 24px 20px; }
+    .service-title { font-size: 22px; }
+
+    /* Values */
+    .values-row { gap: 28px; }
+    .value-item { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 16px; align-items: start; }
+    .value-num { font-size: clamp(36px, 8vw, 48px); grid-column: 1; grid-row: 1; line-height: 1; color: var(--gold); }
+    .value-label { font-size: clamp(20px, 5vw, 26px); grid-column: 2; grid-row: 1; align-self: center; margin-top: 0; margin-bottom: 0; color: var(--green); }
+    .value-desc { font-size: 13px; grid-column: 1 / -1; grid-row: 2; margin-top: 12px; color: #1A1A1A; }
+
+    /* Client cards */
+    .client-card { padding: 24px 20px; }
+    .client-quote { font-size: 15px; }
+
+    /* IAP cards */
+    .iap-card { padding: 24px 20px; }
+    .iap-quote { font-size: 15px; }
+
+    /* Collapse headers */
+    .collapse-header { padding: 20px 5vw; }
+    .collapse-title { font-size: clamp(18px, 5vw, 26px); }
+    .collapse-title-dark { font-size: clamp(18px, 5vw, 26px); }
+    .collapse-subtitle { font-size: 11px; }
+    .collapse-subtitle-dark { font-size: 11px; }
+    .collapse-arrow { font-size: 20px; }
+
+    /* Featured cards */
+    .featured-card { padding: 20px 18px; }
+    .featured-name { font-size: 20px; }
+
+    /* Footer */
+    .footer-links { gap: 10px; }
+    footer { padding: 36px 5vw 24px; }
+    .footer-logo img { height: 28px !important; }
+
+    /* About quote on mobile */
+    .about-quote { font-size: 18px; padding-left: 18px; margin-top: 24px; }
+
+    /* Section headings */
+    .section-heading { font-size: clamp(28px, 7.5vw, 40px); margin-bottom: 18px; }
+    .services .section-heading { font-size: clamp(22px, 5.5vw, 30px); }
+    .featured .section-heading { font-size: clamp(22px, 5.5vw, 30px); }
+    .cta-section p { font-size: 16px !important; }
+    .section-label { font-size: clamp(22px, 5.5vw, 28px); font-weight: 700; }
+    .cta-body-text { font-size: 16px; }
+
+    /* Nav logo */
+    nav { height: 60px; }
+    nav img { height: 30px !important; }
   }
+
+  /* COLLAPSIBLE SECTIONS */
+  .collapse-header {
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer; padding: 32px 5vw;
+    border-bottom: 0.5px solid rgba(201,168,76,0.2);
+    user-select: none;
+  }
+  .collapse-header:hover { opacity: .85; }
+  .collapse-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 700; color: var(--cream);
+    line-height: 1.2;
+  }
+  .collapse-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: #8FAF98;
+    margin-top: 6px; letter-spacing: 0.04em;
+  }
+  .collapse-arrow {
+    font-size: 28px; color: var(--gold);
+    transition: transform 0.35s ease; flex-shrink: 0; margin-left: 24px;
+  }
+  .collapse-arrow.open { transform: rotate(180deg); }
+  .collapse-body {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease;
+  }
+  .collapse-body.open { max-height: 3000px; }
+  .collapse-section { background: var(--green); }
+  .collapse-section-light { background: #EBE4CC; }
+  .collapse-title-dark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 3.5vw, 38px);
+    font-weight: 700; color: var(--green);
+    line-height: 1.2;
+  }
+  .collapse-subtitle-dark {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; color: var(--muted);
+    margin-top: 6px; letter-spacing: 0.04em;
+  }
+  .collapse-arrow-dark { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -327,7 +465,10 @@
   <h1 class="hero-headline">Always with you<br>and your family<br><em>in this journey.</em></h1>
   <div class="hero-divider"></div>
   <p class="hero-sub">Simplifying financial decisions. Building wealth steadily through informed choices, sustained over time.</p>
-  <a class="btn-consult" href="#" onclick="document.getElementById('bookingPopup').style.display='flex'; return false;">Book Now</a>
+  <div class="hero-buttons">
+    <a class="btn-hero-primary" href="#" onclick="document.getElementById('bookingPopup').style.display='flex'; return false;">Book a Free Consultation</a>
+    <a class="btn-hero-outline" href="#" onclick="document.getElementById('enquirePopup').style.display='flex'; return false;">Talk to Us</a>
+  </div>
 </section>
 
 <!-- ABOUT -->
@@ -349,12 +490,12 @@
 <!-- SERVICES -->
 <section class="services">
   <span class="section-label">What We Do</span>
-  <h2 class="section-heading">Guidance at every stage<br>of your financial life.</h2>
+  <h2 class="section-heading">Guidance at every stage of your financial life.</h2>
   <div class="services-grid">
     <div class="service-card">
       <div class="service-bar"></div>
-      <p class="service-title">Mutual Fund Advisory</p>
-      <p class="service-desc">Every financial goal needs a clear plan behind it. We sit with you, understand your priorities and risk appetite, and help you build a roadmap that gives your money direction and purpose.</p>
+      <p class="service-title">Goal Based Investing</p>
+      <p class="service-desc">Every financial goal needs a clear plan behind it. We sit with you, understand your priorities and risk appetite, and help you build a roadmap that gives your money direction and purpose, from your first SIP to retirement.</p>
     </div>
     <div class="service-card">
       <div class="service-bar"></div>
@@ -363,8 +504,13 @@
     </div>
     <div class="service-card">
       <div class="service-bar"></div>
-      <p class="service-title">Goal-Based Financial Planning</p>
-      <p class="service-desc">From your first SIP to retirement. A clear plan that keeps your money working toward what matters most.</p>
+      <p class="service-title">Mutual Fund Distribution</p>
+      <p class="service-desc">We help you understand your financial needs and risk profile, and provide mutual fund solutions suited to your goals and long-term investment horizon.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-bar"></div>
+      <p class="service-title">Investor Awareness Programmes</p>
+      <p class="service-desc">We conduct Investor Awareness Programmes for employees of corporates, government and educational institutions, in person and online. Our objective is to simplify financial planning so that participants are well informed, confident and in control of their financial decisions.</p>
     </div>
   </div>
 </section>
@@ -372,22 +518,23 @@
 <!-- VALUES -->
 <section class="values">
   <span class="section-label">Our Approach</span>
+  <p style="font-family:'Cormorant Garamond',serif; font-size:20px; font-style:normal; font-weight:500; color:var(--muted); margin-bottom:16px;">We keep our Customer's Interest first, and always first.</p>
   <h2 class="section-heading">Three things we never compromise on.</h2>
   <div class="values-row">
     <div class="value-item">
       <div class="value-num">01</div>
       <div class="value-label">Transparency</div>
-      <div class="value-desc">From the very first conversation to every review along the way, our process is fully open. You will always know what we recommend, why we recommend it, and what comes next.</div>
+      <div class="value-desc">From the very first conversation to every review along the way, our process is fully open. We understand your financial goals first, and provide solutions based on that understanding. You will always know what we provide, why we provide it, and what comes next. We only provide solutions that have worked for us.</div>
     </div>
     <div class="value-item">
       <div class="value-num">02</div>
       <div class="value-label">Consistency</div>
-      <div class="value-desc">We show up at every stage. Not just when markets are good.</div>
+      <div class="value-desc">We stay focused on your goals, sharing weekly updates on India and global markets, and quarterly newsletters to keep you on course through all market cycles and major economic events. We show up at every stage. Not just when financial markets are good.</div>
     </div>
     <div class="value-item">
       <div class="value-num">03</div>
       <div class="value-label">Research</div>
-      <div class="value-desc">Every decision is backed by data. Not instinct or incentive.</div>
+      <div class="value-desc">Every solution we provide is well thought through, based on our investment experience, research and life experience. We do not chase market bottoms and tops, nor do we reshuffle your portfolio to follow the latest trends. We focus on keeping you invested for the long term, because that is what helps you achieve your financial goals.</div>
     </div>
   </div>
 </section>
@@ -409,9 +556,16 @@
 </section>
 
 <!-- IAPS -->
-<section class="iaps">
-  <span class="section-label">Investor Awareness Programmes</span>
-  <h2 class="section-heading">Sessions conducted across organisations<br>in Pune and beyond.</h2>
+<div class="collapse-section">
+  <div class="collapse-header" onclick="toggleSection(this)">
+    <div>
+      <div class="collapse-title">Investor Awareness Programmes</div>
+      <div class="collapse-subtitle">Sessions conducted across organisations in Pune and beyond</div>
+    </div>
+    <span class="collapse-arrow">&#8964;</span>
+  </div>
+  <div class="collapse-body">
+  <section class="iaps" style="padding-top:48px;">
   <div class="iap-cards">
     <div class="iap-card">
       <p class="iap-quote">"The session was highly informative, professionally delivered, and effectively covered key aspects of financial planning, including goal setting, savings versus investments, debt management, and retirement planning. Such initiatives add significant value to employee well-being by promoting informed financial decision-making and long-term financial security."</p>
@@ -440,14 +594,25 @@
   </div>
 
   <div style="margin-top:56px; text-align:center;">
-    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:20px; color:#C8D9CC; margin-bottom:24px;">We bring financial clarity to your workplace — simply, practically, and without the jargon.</p>
+    <p style="font-family:'Cormorant Garamond',serif; font-style:normal; font-weight:500; font-size:18px; color:#C8D9CC; margin-bottom:24px;">We bring financial clarity to your workplace, simply, practically, and without the jargon.</p>
     <a href="https://forms.gle/45pGTHZhzKm1xZ959" target="_blank" rel="noopener" style="display:inline-block; background:#C9A84C; color:#1E3D2A; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:500; letter-spacing:0.07em; text-transform:uppercase; padding:14px 36px; border-radius:2px; text-decoration:none;">Bring This to Your Organisation</a>
   </div>
 
-</section>
-<section class="clients">
-  <span class="section-label">From Our Clients</span>
-  <h2 class="section-heading">Relationships built on trust,<br>one family at a time.</h2>
+  </section>
+  </div>
+</div>
+
+<!-- FROM OUR CLIENTS -->
+<div class="collapse-section-light">
+  <div class="collapse-header" onclick="toggleSection(this)" style="border-bottom: 0.5px solid rgba(30,61,42,0.15);">
+    <div>
+      <div class="collapse-title-dark">From Our Clients</div>
+      <div class="collapse-subtitle-dark">Relationships built on trust, one family at a time</div>
+    </div>
+    <span class="collapse-arrow" style="color:var(--gold);">&#8964;</span>
+  </div>
+  <div class="collapse-body">
+  <section class="clients" style="padding-top:48px;">
   <div class="clients-grid">
     <div class="client-card">
       <p class="client-quote">"Mr. Krishnan has been associated with me as my Financial Advisor. He is knowledgeable, trustworthy, and always takes the time to explain things clearly. His guidance has helped me make better financial decisions with confidence."</p>
@@ -473,16 +638,39 @@
       <p class="client-name">Ashutosh Tripathi</p>
       <p class="client-role">Digital Marketing Strategist</p>
     </div>
+  
+    <div class="client-card">
+      <p class="client-quote">"Krishnan helped me move from simply saving money to building a structured financial strategy, putting the right pillars in place for investments, retirement planning and long-term life goals. What truly sets Krishnan apart is his integrity, depth of market understanding and genuine commitment to his clients' financial well-being. He educates, guides, and ensures you stay disciplined through market cycles."</p>
+      <div class="client-divider"></div>
+      <p class="client-name">Rakshpal Singh</p>
+      <p class="client-role">Startup | Funding | Growth Capital | Venture Capital</p>
+    </div>
+
+    <div class="client-card">
+      <p class="client-quote">"Krishnan is a very knowledgeable, thoughtful, considerate and selfless person. His goal of helping, guiding and spreading awareness about long-term financial security is truly genuine. His expertise in his field, along with his eagerness to seek more information whenever he is unsure, so that he can guide his clients in the right direction, is commendable."</p>
+      <div class="client-divider"></div>
+      <p class="client-name">Namita Ramawat</p>
+      <p class="client-role">Senior Manager Operations, Westside</p>
+    </div>
+
+    <div class="client-card">
+      <p class="client-quote">"I had personal savings but lacked clear direction. Krishnan helped me understand my financial needs and risk profile, while ensuring accountability throughout. He doesn't just assist with investments, he continuously educates, provides regular market updates, and has helped me maintain discipline and make thoughtful decisions rather than acting on impulse."</p>
+      <div class="client-divider"></div>
+      <p class="client-name">Ghanshyam Jedhe</p>
+      <p class="client-role">Joint Secretary, Krushi Utpanna Bazar Samiti</p>
+    </div>
   </div>
-</section>
+  </section>
+  </div>
+</div>
 
 <!-- CTA -->
 <section class="cta-section">
   <span class="section-label">Get In Touch</span>
-  <h2 class="section-heading">Let us talk about<br>your financial goals.</h2>
-  <p>A 20-minute conversation can change the direction of your financial journey.</p>
+  <h2 class="section-heading">Let's build a financial plan<br>that works for you.</h2>
+  <p class="cta-body-text">A 20-minute conversation can change the direction of your financial journey.</p>
   <div class="cta-buttons">
-    <a class="btn-primary" href="#" onclick="document.getElementById('bookingPopup').style.display='flex'; return false;">Book Now</a>
+    <a class="btn-primary" href="#" onclick="document.getElementById('bookingPopup').style.display='flex'; return false;">Book a Free Consultation</a>
     <a class="btn-primary" href="tel:7757873564">Call Us: 7757873564</a>
     <a class="btn-outline" href="https://share.google/ktznVtrMIxsiMFObb" target="_blank" rel="noopener">Review Us on Google</a>
     <a class="btn-outline" href="https://in.linkedin.com/in/kpkrishnanwealthink" target="_blank" rel="noopener">Connect on LinkedIn</a>
@@ -519,7 +707,7 @@
     <p style="font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#C9A84C; margin-bottom:8px;">Wealthink</p>
     <h3 style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:#1E3D2A; margin-bottom:32px; line-height:1.2;">How can we help you?</h3>
     <div style="display:flex; flex-direction:column; gap:12px;">
-      <a href="https://www.wealthy.in/partners/krish30649" target="_blank" rel="noopener" style="display:block; background:#1E3D2A; color:#F2EDD7; padding:24px 28px; text-decoration:none; transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf104QiSRLo5fYjeNf6wu70G4A8hWkrJNEA7a0Wjb7UidSSyQ/viewform?usp=header" target="_blank" rel="noopener" style="display:block; background:#1E3D2A; color:#F2EDD7; padding:24px 28px; text-decoration:none; transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
         <p style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:#C9A84C; margin-bottom:4px;">Personal Consultation</p>
         <p style="font-size:13px; color:#8FAF98; line-height:1.6;">For individuals and families looking to plan their financial journey.</p>
       </a>
@@ -530,5 +718,37 @@
     </div>
   </div>
 </div>
+
+<!-- ENQUIRE POPUP -->
+<div id="enquirePopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px;" onclick="if(event.target===this)this.style.display='none';">
+  <div style="background:#F2EDD7; max-width:420px; width:100%; padding:48px 40px; position:relative;">
+    <button onclick="document.getElementById('enquirePopup').style.display='none'" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:20px; color:#5A5245; cursor:pointer;">✕</button>
+    <p style="font-family:'Cormorant Garamond',serif; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#C9A84C; margin-bottom:8px;">Get In Touch</p>
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:#1E3D2A; margin-bottom:32px; line-height:1.2;">We would love to hear from you.</h3>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <a href="tel:7757873564" style="display:block; background:#1E3D2A; color:#F2EDD7; padding:20px 28px; text-decoration:none;">
+        <p style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; color:#C9A84C; margin-bottom:4px;">Call Us</p>
+        <p style="font-size:13px; color:#8FAF98;">+91 77578 73564</p>
+      </a>
+      <a href="mailto:wealthinkofficial@gmail.com" style="display:block; background:#1E3D2A; color:#F2EDD7; padding:20px 28px; text-decoration:none;">
+        <p style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; color:#C9A84C; margin-bottom:4px;">Email Us</p>
+        <p style="font-size:13px; color:#8FAF98;">wealthinkofficial@gmail.com</p>
+      </a>
+      <a href="https://wa.me/917757873564" target="_blank" rel="noopener" style="display:block; background:#1E3D2A; color:#F2EDD7; padding:20px 28px; text-decoration:none;">
+        <p style="font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; color:#C9A84C; margin-bottom:4px;">WhatsApp</p>
+        <p style="font-size:13px; color:#8FAF98;">Message us directly</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleSection(el) {
+  const body = el.nextElementSibling;
+  const arrow = el.querySelector('.collapse-arrow');
+  body.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+</script>
 </body>
 </html>
